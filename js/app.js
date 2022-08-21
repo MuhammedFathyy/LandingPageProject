@@ -37,3 +37,32 @@ function checkViewPort()
         }
     }
 } 
+
+function isInViewport(section) {
+    const rect = section.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+
+
+/* Listeners functions */
+
+document.addEventListener("scroll", checkViewPort);
+
+document.addEventListener("mousemove", checkViewPort);
+
+for(let i =0; i< length ; i++)
+{  
+    addingList.children[i].addEventListener('click' , function()
+    {
+        sections[i].scrollIntoView({behavior : "smooth" , block : "center"});
+        
+
+    })
+    
+}
