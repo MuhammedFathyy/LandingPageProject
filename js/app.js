@@ -27,7 +27,7 @@ navBar.appendChild(addingList);
 function checkViewPort()
 {
     let messageText = false;
-    for(let i  =0; i < length ; i++)
+    for(let i = 0; i < length ; i++)
     {
         messageText = isInViewport(sections[i]);
         if(messageText)
@@ -66,3 +66,19 @@ for(let i =0; i< length ; i++)
     })
     
 }
+
+
+document.addEventListener("scroll", function()
+{
+    navBar.style.display = "none";
+})
+
+document.addEventListener("mousemove" , function(event)
+{
+    if(event.clientY <= 100)
+        navBar.style.display = "block";
+    else{
+        navBar.style.display = "none";
+    }
+})
+
